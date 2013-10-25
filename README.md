@@ -2,7 +2,8 @@
 <br>
 ###Description
 <br>
-This is a driver for the MSP430 to interface with an LCD screen.  The available functions are:
+This is a driver for the MSP430 to interface with an LCD screen.  The available functions are:<br>
+<br>
 <br>
 Initializes the SPi communication on the MSP430<br>
 `void initSPI()`
