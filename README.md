@@ -20,11 +20,14 @@ Moves the character pointer to the first line<br>
 Moves the character pointer to the second line<br>
 `void cursorToLineTwo()`
 
-Writes the given character to the screen and increments the cursor.  Will automatically shift to second line after eight characters are written<br>
+Writes the given character to the screen and increments the cursor.<br>
 `void writeChar(char asciiChar)`
 
 Writes the given string to the LCD screen, if it is greater than eight characters long, then the second eight characters will be written to the second line.  Any characters after sixteen will not be written to the screen.<br>
 `writeString(char * string)`
+
+Writes the given strings to the top and bottom of the LCD screen respectively.  Will not auto wrap.<br>
+`writeString(char * string1, char * string2)`
 
 Scrolls the first given string screen to the left on the top line at a rate of five characters per second.  Scrolls the second given string to the left on the bottom line at a rate of five characters per second.<br>
 `scrollString(char * string1, char * string2)`
