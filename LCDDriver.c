@@ -11,6 +11,8 @@
 #define RS_MASK 0x40
 #define TRUE 1
 #define FALSE 0
+#define NULL_BYTE 0x00
+#define SCREEN_LENGTH 8
 
 void SPI_send(char byteToSend);
 void writeCommandByte(char commandByte);
@@ -188,24 +190,31 @@ void cursorToLineOne()
 void LCDclear()
 {
 	writeCommandByte(0x01); // Remember to take out magic number
-	position = 0;
 }
 
 void writeChar(char asciiChar)
 {
-	if (position < 16) {
-		if (position == 8)
-			cursorToLineTwo();
-		writeDataByte(asciiChar);
-		position++;
-	}
+	writeDataByte(asciiChar);
 }
 
 void writeString(char * string)
 {
 	int i;
-	for(i = 0; i < 16; i++)
+	for (i = 0; i < SCREEN_LENGTH * 2; i++) {
+		if (i == 8) {
+			cursorToLineTwo();
+		}
 		writeChar(string[i]);
+	}
+}
+void writeString(char * string1, char * string2)
+{
+	int i;
+	for (i = 0; i < SCREEN_LENGTH; i++)
+		writeChar(string1[i]);
+	cursorToLineTwo();
+	for (i = 0; i < SCREEN_LENGTH; i++)
+		writeChar(string2[i]);
 }
 void scrollString(char * string1, char * string2)
 {
@@ -214,14 +223,11 @@ void scrollString(char * string1, char * string2)
 	char* iterString2 = string2;
 	while (TRUE) {
 		LCDclear();
-		if (*(iterString1 + 8) == 0x00)
+		if (*(iterString1 + SCREEN_LENGTH) == NULL_BYTE)
 			iterString1 = string1;
-		if (*(iterString2 + 8) == 0x00)
+		if (*(iterString2 + SCREEN_LENGTH) == NULL_BYTE)
 			iterString2 = string2;
-		for (i = 0; i < 8; i++)
-				writeChar(iterString1[i]);
-		for (i = 0; i < 8; i++)
-				writeChar(iterString2[i]);
+		writeString(iterString1, iterString2);
 		delayHundred();
 		iterString1++;
 		iterString2++;

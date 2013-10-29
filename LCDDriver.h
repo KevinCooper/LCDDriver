@@ -47,7 +47,7 @@ void cursorToLineOne();
 
 /*
  * Author: Kevin Cooper
- * Function: Writes the given character to the screen and increments the cursor.  Will automatically shift to second line after eight characters are written
+ * Function: Writes the given character to the screen and increments the cursor.
  * Inputs: Character asciiChar that should be written
  */
 void writeChar(char asciiChar);
@@ -58,6 +58,12 @@ void writeChar(char asciiChar);
  * Inputs: String to be written
  */
 void writeString(char * string);
+/*
+ * Author: Kevin Cooper
+ * Function: Writes the given strings to the top and bottom line respectively.  Will not wrap the text.
+ * Inputs: String to be written to top line, string to be written to bottom line
+ */
+void writeString(char * string1, char * string2)
 
 /*
  * Author: Kevin Cooper
