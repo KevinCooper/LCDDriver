@@ -151,12 +151,12 @@ void SPI_send(char byteToSend)
 
 void set_SS_lo()
 {
-	P1OUT &= ~(BIT0 | BIT3);
+	P1OUT &= ~( BIT4);
 }
 
 void set_SS_hi()
 {
-	P1OUT |= BIT0 | BIT3;
+	P1OUT |= BIT4;
 }
 /*
  * Author: Kevin Cooper
@@ -169,7 +169,7 @@ void initSPI()
 	UCB0STAT |= UCLISTEN;  //enables internal loopback
 	P1SEL |= BIT5;  //make UCB0CLK available on P1.5
 	P1SEL2 |= BIT5;
-	P1DIR |= BIT0 | BIT3;  //Set up P1.3 to be out SS output
+	P1DIR |= BIT4;  //Set up P1.4 to be out SS output
 	P1SEL |= BIT7;  //make UCB0SSIMO available on P1.7 ; = MOSI
 	P1SEL2 |= BIT7;
 	P1SEL |= BIT6; //make UCB0SSOMI available on P1.6; = MISO

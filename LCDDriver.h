@@ -19,7 +19,7 @@ void initSPI();
 
 /*
  * Author: Kevin Cooper
- * Function: Initializes the LCD screen and should blank it in the process.
+ * Function: Initializes the LCD screen and should blank it in the process.  Uses P1.4-1.7 to communicate.
  * Inputs: None
  */
 void LCDinit();
