@@ -6,7 +6,6 @@
  */
 
 #include <msp430.h>
-#include "clock.h"
 
 #define RS_MASK 0x40
 #define TRUE 1
