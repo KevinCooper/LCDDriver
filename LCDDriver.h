@@ -63,7 +63,7 @@ void writeString(char * string);
  * Function: Writes the given strings to the top and bottom line respectively.  Will not wrap the text.
  * Inputs: String to be written to top line, string to be written to bottom line
  */
-void writeString(char * string1, char * string2);
+void writeStringTwo(char * string1, char * string2);
 
 /*
  * Author: Kevin Cooper

@@ -206,7 +206,7 @@ void writeString(char * string)
 		writeChar(string[i]);
 	}
 }
-void writeString(char * string1, char * string2)
+void writeStringTwo(char * string1, char * string2)
 {
 	int i;
 	for (i = 0; i < SCREEN_LENGTH; i++)
@@ -226,7 +226,7 @@ void scrollString(char * string1, char * string2)
 			iterString1 = string1;
 		if (*(iterString2 + SCREEN_LENGTH) == NULL_BYTE)
 			iterString2 = string2;
-		writeString(iterString1, iterString2);
+		writeStringTwo(iterString1, iterString2);
 		delayHundred();
 		iterString1++;
 		iterString2++;
